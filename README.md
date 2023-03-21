@@ -1,18 +1,44 @@
-# DynamicExpressionEvaluator
+# ExpressionEvaluator
+ExpressionEvaluator is a .NET library for evaluating string expressions using binary expression trees or reverse polish notation.
 
-### Getting started
+## Abstractions
+The ExpressionEvaluator.Abstractions project contains the core abstractions and interfaces used by the library.
 
-To use the Exceptionless sink, first install the [NuGet package](https://www.nuget.org/packages/DynamicExpressionEvaluator.Default.RPN/):
+## BET
+The ExpressionEvaluator.BET project contains an implementation of the expression evaluator using binary expression trees.
 
-```powershell
-Install-Package DynamicExpressionEvaluator.Default.RPN
-``` 
+## RPN
+The ExpressionEvaluator.RPN project contains an implementation of the expression evaluator using reverse polish notation.
 
-Next, we need to ensure that DynamicExpressionEvaluator has been Registerd. 
+## Calculator
+The ExpressionEvaluator.Calculator project contains a calculator implementation for evaluating arithmetic expressions.
 
-```csharp
-services.AddDefaultRPNExpressionEvaluator();
-```
-Next, Injection the `IStringExpressionEvaluator` where you use it
+## RegexTokenizer
+The ExpressionEvaluator.RegexTokenizer project contains an implementation of a tokenizer using regular expressions.
 
-Done!
+## Utilities
+The ExpressionEvaluator.Utilities project contains utility classes and methods used by the library.
+
+## Default Implementations
+The ExpressionEvaluator.Default.BET and ExpressionEvaluator.Default.RPN projects provide quick registration of the ExpressionEvaluator to the dependency injection container.
+
+## Getting Started
+To get started, add the ExpressionEvaluator to your IServiceCollection and use the IStringExpressionEvaluator to evaluate expressions:
+
+···
+var services = new ServiceCollection();
+services.AddDefaultBETExpressionEvaluator();
+var provider = services.BuildServiceProvider();
+var expressions = new string[] { /* list of expressions to evaluate */ };
+var expressionEvaluator = provider.GetService<IStringExpressionEvaluator>();
+
+foreach (var expression in expressions)
+{
+    Console.WriteLine($"{expression} = {expressionEvaluator.Evaluate(expression)}");
+}
+···
+## Contributing
+Contributions to this project are welcome. Please submit pull requests or issues to the GitHub repository.
+
+License
+This project is licensed under the MIT License.
