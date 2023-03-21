@@ -59,7 +59,7 @@ public class UnderscoreTokenizer : ITokenizer
 And registered using:
 
 ```csharp
-services.AddExpressionEvaluator()
+services.AddExpressionEvaluatorCore()
     .AddCustomTokenizer<UnderscoreTokenizer>();
 ```
 
@@ -85,11 +85,9 @@ public class JavaScriptEvaluator : IStringExpressionEvaluator
 And registered using:
 
 ```csharp
-services.AddExpressionEvaluator()
+services.AddExpressionEvaluatorCore()
     .AddCustomExpressionStringEvaluator<JavaScriptEvaluator>();
 ```
-
-Note: The MathParser.Parse method used in the example above is not part of ExpressionEvaluator and needs to be implemented separately.
 
 ### Contributing
 Contributions to this project are welcome. Please submit pull requests or issues to the GitHub repository.
