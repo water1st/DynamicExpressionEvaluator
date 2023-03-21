@@ -25,7 +25,7 @@ The ExpressionEvaluator.Default.BET and ExpressionEvaluator.Default.RPN projects
 ### Getting Started
 To get started, add the ExpressionEvaluator to your IServiceCollection and use the IStringExpressionEvaluator to evaluate expressions:
 
-```
+```csharp
 var services = new ServiceCollection();
 services.AddDefaultBETExpressionEvaluator();
 var provider = services.BuildServiceProvider();
