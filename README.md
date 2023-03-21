@@ -42,7 +42,7 @@ foreach (var expression in expressions)
 ExpressionEvaluator provides customization options to allow users to add their own functionality to the library.
 
 #### Custom Tokenizer
-Users can implement their own tokenizer by implementing the ITokenizer interface and registering it with the IExpressionEvaluatorBuilder using the AddCustomTokenizer method.
+Users can implement their own tokenizer by implementing the ITokenizer interface and registering it with the `IExpressionEvaluatorBuilder` using the `AddCustomTokenizer` method.
 
 For example, a custom tokenizer that splits expressions into words separated by underscores could be implemented as follows:
 
@@ -67,7 +67,7 @@ services.AddExpressionEvaluatorCore()
 ExpressionEvaluator provides interfaces to implement custom evaluators for both single string expressions and arrays of string expressions.
 
 #### Single String Expression Evaluators
-Users can implement their own single string expression evaluators by implementing the IStringExpressionEvaluator interface and registering it with the IExpressionEvaluatorBuilder using the AddCustomExpressionStringEvaluator method.
+Users can implement their own single string expression evaluators by implementing the `IStringExpressionEvaluator` interface and registering it with the `IExpressionEvaluatorBuilder` using the `AddCustomExpressionStringEvaluator` method.
 
 For example, a custom evaluator that evaluates expressions as JavaScript code could be implemented as follows:
 
