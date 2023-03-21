@@ -10,10 +10,24 @@ namespace ExpressionEvaluator
             return new ExpressionEvaluatorBuilder(services);
         }
 
-        public static IExpressionEvaluatorBuilder AddCustomTokenizer<Tokenizer>(this IExpressionEvaluatorBuilder builder)
-            where Tokenizer : class, IExpressionTokenizer
+        public static IExpressionEvaluatorBuilder AddCustomTokenizer<TTokenizer>(this IExpressionEvaluatorBuilder builder)
+            where TTokenizer : class, IExpressionTokenizer
         {
-            builder.Services.TryAddScoped<IExpressionTokenizer, Tokenizer>();
+            builder.Services.TryAddScoped<IExpressionTokenizer, TTokenizer>();
+            return builder;
+        }
+
+        public static IExpressionEvaluatorBuilder AddCustomExpressionStringEvaluator<TEvaluator>(this IExpressionEvaluatorBuilder builder)
+            where TEvaluator : class, IStringExpressionEvaluator
+        {
+            builder.Services.TryAddScoped<IStringExpressionEvaluator, TEvaluator>();
+            return builder;
+        }
+
+        public static IExpressionEvaluatorBuilder AddCustomExpressionStringArrayEvaluator<TEvaluator>(this IExpressionEvaluatorBuilder builder)
+            where TEvaluator : class, IStringArrayExpressionEvaluator
+        {
+            builder.Services.TryAddScoped<IStringArrayExpressionEvaluator, TEvaluator>();
             return builder;
         }
     }
