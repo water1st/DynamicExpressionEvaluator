@@ -38,6 +38,59 @@ foreach (var expression in expressions)
 }
 ```
 
+### Customization
+ExpressionEvaluator provides customization options to allow users to add their own functionality to the library.
+
+#### Custom Tokenizer
+Users can implement their own tokenizer by implementing the ITokenizer interface and registering it with the IExpressionEvaluatorBuilder using the AddCustomTokenizer method.
+
+For example, a custom tokenizer that splits expressions into words separated by underscores could be implemented as follows:
+
+
+```csharp
+public class UnderscoreTokenizer : ITokenizer
+{
+    public IEnumerable<string> Tokenize(string expression)
+    {
+        return expression.Split('_');
+    }
+}
+```
+And registered using:
+
+```csharp
+services.AddExpressionEvaluator()
+    .AddCustomTokenizer<UnderscoreTokenizer>();
+```
+
+#### Custom Expression Evaluators
+ExpressionEvaluator provides interfaces to implement custom evaluators for both single string expressions and arrays of string expressions.
+
+#### Single String Expression Evaluators
+Users can implement their own single string expression evaluators by implementing the IStringExpressionEvaluator interface and registering it with the IExpressionEvaluatorBuilder using the AddCustomExpressionStringEvaluator method.
+
+For example, a custom evaluator that evaluates expressions as JavaScript code could be implemented as follows:
+
+```csharp
+public class JavaScriptEvaluator : IStringExpressionEvaluator
+{
+    public object Evaluate(string expression)
+    {
+        // evaluate expression as JavaScript code
+        return JavaScriptEngine.Evaluate(expression);
+    }
+}
+```
+
+And registered using:
+
+```csharp
+services.AddExpressionEvaluator()
+    .AddCustomExpressionStringEvaluator<JavaScriptEvaluator>();
+```
+
+Note: The MathParser.Parse method used in the example above is not part of ExpressionEvaluator and needs to be implemented separately.
+
 ### Contributing
 Contributions to this project are welcome. Please submit pull requests or issues to the GitHub repository.
 
