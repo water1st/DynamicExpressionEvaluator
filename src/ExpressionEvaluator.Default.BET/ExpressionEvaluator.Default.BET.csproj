@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExpressionEvaluator.BET\ExpressionEvaluator.BET.csproj" />
+    <ProjectReference Include="..\ExpressionEvaluator.Calculator\ExpressionEvaluator.Calculator.csproj" />
+    <ProjectReference Include="..\ExpressionEvaluator.RegexTokenizer\ExpressionEvaluator.RegexTokenizer.csproj" />
+    <ProjectReference Include="..\ExpressionEvaluator.Utilities\ExpressionEvaluator.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>
