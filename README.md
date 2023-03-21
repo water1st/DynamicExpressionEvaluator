@@ -3,9 +3,12 @@ ExpressionEvaluator is a .NET library for evaluating string expressions using bi
 
 ### Abstractions
 The ExpressionEvaluator.Abstractions project contains the core abstractions and interfaces used by the library.
+
+The `IStringArrayExpressionEvaluator` interface provides an abstraction for evaluating mathematical expressions represented as arrays of strings. By separating the evaluation logic from the expression parsing logic, this interface allows for greater flexibility and modularity in the implementation of mathematical expression evaluators.
+
 The `IStringArrayExpressionEvaluator` interface defines a string Evaluate(IEnumerable<string> words) method, which takes an iterator object words that represents a tokenized expression, such as `["1", "+", "2"]`. The Evaluate method evaluates the expression and returns the result as a string.
 
-The IStringArrayExpressionEvaluator interface provides an abstraction for evaluating mathematical expressions represented as arrays of strings. By separating the evaluation logic from the expression parsing logic, this interface allows for greater flexibility and modularity in the implementation of mathematical expression evaluators.
+
 
 ### BET
 The ExpressionEvaluator.BET project contains an implementation of the expression evaluator using binary expression trees.
