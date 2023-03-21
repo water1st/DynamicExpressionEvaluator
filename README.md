@@ -2,13 +2,14 @@
 ExpressionEvaluator is a .NET library for evaluating string expressions using binary expression trees or reverse polish notation.
 
 ### Abstractions
-The ExpressionEvaluator.Abstractions project contains the core abstractions and interfaces used by the library.
 
-The `IStringArrayExpressionEvaluator` interface provides an abstraction for evaluating mathematical expressions represented as arrays of strings. By separating the evaluation logic from the expression parsing logic, this interface allows for greater flexibility and modularity in the implementation of mathematical expression evaluators.
+The ExpressionEvaluator.Abstractions project contains the core abstractions and interfaces used by the library. Two of the most important interfaces are IStringArrayExpressionEvaluator and IStringExpressionEvaluator.
 
-The `IStringArrayExpressionEvaluator` interface defines a string Evaluate(IEnumerable<string> words) method, which takes an iterator object words that represents a tokenized expression, such as `["1", "+", "2"]`. The Evaluate method evaluates the expression and returns the result as a string.
+`IStringArrayExpressionEvaluator` was previously described as an interface for evaluating mathematical expressions represented as arrays of strings. The method defined in this interface takes an iterator object "words" as input, which represents a tokenized expression. For example, the input `["1","+","2"]` represents the expression "1 + 2".
 
+`IStringExpressionEvaluator` is another interface that defines a string Evaluate(string expression) method. This method takes a string expression and evaluates it, returning the result as a string. This interface can be useful for evaluating simpler expressions that do not require tokenization or for cases where the expression is already provided in string format.
 
+Together, these two interfaces provide a flexible and modular approach to evaluating mathematical expressions, accommodating different formats of expressions and allowing for easy implementation of custom evaluators.
 
 ### BET
 The ExpressionEvaluator.BET project contains an implementation of the expression evaluator using binary expression trees.
