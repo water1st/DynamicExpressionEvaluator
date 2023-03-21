@@ -74,10 +74,10 @@ For example, a custom evaluator that evaluates expressions as JavaScript code co
 ```csharp
 public class JavaScriptEvaluator : IStringExpressionEvaluator
 {
-    public object Evaluate(string expression)
+    public string Evaluate(string expression)
     {
         // evaluate expression as JavaScript code
-        return JavaScriptEngine.Evaluate(expression);
+        return JavaScriptEngine.Evaluate(expression).ToString();
     }
 }
 ```
