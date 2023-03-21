@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <Authors>water_1st</Authors>
+    <Product>ExpressionEvaluator</Product>
+    <Company>null</Company>
+    <PackageProjectUrl>https://github.com/water1st/DynamicExpressionEvaluator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/water1st/DynamicExpressionEvaluator.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
